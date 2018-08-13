@@ -4,9 +4,11 @@ import numpy as np
 import datetime # classes for manipulating dates and times
 import calendar # classes for accessing month and its attributes.
 
-CITY_DATA = { 'chicago': 'C:/Users/pradeep/Udacity/Python/Bikeshare/chicago.csv',
-              'new york city': 'C:/Users/pradeep/Udacity/Python/Bikeshare/new_york_city.csv',
-              'washington': 'C:/Users/pradeep/Udacity/Python/Bikeshare/washington.csv' }
+# location of csv files to be in appropriate direcotry of your local machine to have this program run successfully
+
+CITY_DATA = { 'chicago': './chicago.csv',
+              'new york city': './new_york_city.csv',
+              'washington': './washington.csv' }
 
 def get_filters():
     """
