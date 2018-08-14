@@ -49,13 +49,13 @@ def get_filters():
         print('-'*40)
         print('\nFile  used for data analysis is : ', city)
     else:
-        city = CITY_DATA[city]
+        city = CITY_DATA[city.lower()]
         print('-'*40)
         print('\nFile  used for data analysis is : ', city)
 
     print('-'*40)
 
-    return city, month, day
+    return city.lower(), month.lower(), day.lower()
 
 
 
@@ -199,6 +199,15 @@ def user_stats(df):
     print("\nThis took %s seconds." % (time.time() - start_time))
     print('-'*40)
 
+#As advised by Udacity Reviewer on 08/13/2018, below funciton is defined to display raw data in the event user want to see them:
+def display_data(df):
+    user_input = input("  \n\n Do you want to see next 5 lines of raw data? Enter yes or no.\n' ")
+    if user_input.lower() != 'no':
+        print(df.head(5))
+        display_data(df)
+            
+
+
 
 def main():
     while True:
@@ -209,7 +218,7 @@ def main():
         station_stats(df)
         trip_duration_stats(df)
         user_stats(df)
-
+        display_data(df)
         restart = input('\nWould you like to restart? Enter yes or no.\n')
         if restart.lower() != 'yes':
             print("\nThank you for Exploring US Bikeshare Data\....Have a good day\n")
